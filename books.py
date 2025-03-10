@@ -1,18 +1,12 @@
 import os
 from dotenv import load_dotenv
 import psycopg2
-import pyodbc
-import polars as pl
 import pandas as pd
 
 from queries import query_all_books, query_all_authors, query_books_with_authors ,query_books_by_author
 
+load_dotenv()
 
-pg_host = os.getenv("J_POSTGRES_HOST", "your_pg_host")
-pg_port = os.getenv("J_POSTGRES_PORT", "5432")
-pg_db   = os.getenv("J_POSTGRES_DB", "testko")
-pg_user = os.getenv("J_POSTGRES_USER", "username")
-pg_pass = os.getenv("J_POSTGRES_PASSWORD", "password")
 
 def  pg_db_connect() -> psycopg2.connect:
     pg_host = os.getenv("J_POSTGRES_HOST", "your_pg_host")
